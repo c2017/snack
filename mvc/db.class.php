@@ -70,10 +70,10 @@ class db{
       @example  filed("name='zhangsan',age='12'") 【update】
       @example  filed("name='zhangsan';age='12'")  【insert】
       @example  filed("name='zhangsan'")  【update,insert】
+      @return   当前对象的指针
     */
     public function filed($opt=""){
         $sql=$opt=$opt?$opt:"*";
-
 
         if(strpos($sql,";")){
             $keys="";

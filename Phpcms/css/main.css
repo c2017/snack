@@ -1,0 +1,118 @@
+
+.header{
+    height:100px;
+    width:100%;
+    border-bottom:1px solid #445933;
+    background:#ecc3bc;
+}
+.header h2{
+    text-align:center;
+    line-height:60px;
+    font-size:24px;
+}
+
+.header h5{
+    height:30px;
+    line-height:30px;
+    float:right;
+    position:absolute;
+    left:50%;
+    top:0;
+    margin-left:300px;
+}
+.header h5 a{
+    color:#445933;
+}
+.header h5 a:hover{
+    text-decoration: underline;
+}
+.header h5 a:active{
+    color:#de8f83;
+}
+.bottom{
+    height:600px;
+    width:100%;
+    position:relative;
+}
+
+.left{
+    height:100%;
+    width:200px;
+    overflow:hidden;
+    background:#de8f83;
+    border-right:1px solid #445933;
+}
+.left li{
+    height:auto;
+    width:100%;
+}
+.left li b{
+    display:inline-block;
+    vertical-align: center;
+    font-weight:400;
+    font-family: simsun;
+    float:right;
+    transition: 0.5s all;
+}
+.left li:hover b{
+    transform: rotate(90deg);
+}
+.left .opi{
+    cursor:pointer;
+    display:block;
+    position:relative;
+    height:29px;
+    line-height:29px;
+    padding-left:20px;
+    padding-right:15px;
+    color:#ecc3bc;
+    font-weight:600;
+    border-bottom:1px solid #e6e6db;
+}
+.left .opi:hover>i{
+    display:block;
+}
+.left .opi:hover{
+    background:#e6e6db;
+    color:#d0bca2;
+}
+.left .opi>i{
+    content:"";
+    height:30px;
+    width:4px;
+    background:#d0bca2;
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+}
+.left .son{
+
+}
+.left .son li{
+    height:28px;
+    line-height:28px;
+}
+.left .son li a{
+    height:100%;
+    padding-left:30px;
+    color:#ecc3bc;
+    display:block;
+}
+.left .son li a:hover{
+    color:#d0bca2;
+    background:#e6e6db;
+}
+
+.right{
+    height:100%;
+    min-width:85%;
+    position:absolute;
+    left:200px;
+    top:0;
+}
+iframe{
+    height:100%;
+    width:100%;
+}
+
