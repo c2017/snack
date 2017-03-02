@@ -1,17 +1,23 @@
 <?php
 
+/*
+ * @param   string  tablename
+ * @return  number|array
+ * @author   常圆圆 c2017@foxmail.com
+ * */
 
 class db{
-    public $hostname="localhost";//初始化服务器域名
-    public $dbname="1603class";// 数据库名称
+    public  $hostname="localhost";  //初始化服务器域名
+    public  $dbname="demo";    // 数据库名称
     private $username="root";
     private $password="";
-    public $tablename="";  //要操作的表格的名称
-    private $connect; //连接db
-    public $fileds;  //保存一系列sql语句组合
+    public  $tablename="";  //要操作的表格的名称
+    private $connect;       //连接db
+    public  $fileds;        //保存一系列sql语句组合
 
     /*
-     * @param  string  要操作的数据库的表名，必须传参
+     * @param    string  要操作的数据库的表名，必须传参
+     * @example  new db('table');
      * */
     function __construct($tablename)
     {
@@ -27,6 +33,12 @@ class db{
     }
 
     public function config(){
+
+        if(!empty($this->connect)){
+            //如果连接不为空，关闭之前打开的连接
+            $this->connect->close();
+        }
+
         $this->connect=mysqli_connect($this->hostname,$this->username,$this->password,$this->dbname);
         if(mysqli_connect_error()){
             echo "连接 MYSQL 失败";
@@ -70,7 +82,7 @@ class db{
       @example  filed("name='zhangsan',age='12'") 【update】
       @example  filed("name='zhangsan';age='12'")  【insert】
       @example  filed("name='zhangsan'")  【update,insert】
-      @return   当前对象的指针
+      @return   当前对象
     */
     public function filed($opt=""){
         $sql=$opt=$opt?$opt:"*";
@@ -98,17 +110,17 @@ class db{
     /*
      * @param   [string]
      * @example where('id=1')
-     * @return  当前对象的指针
+     * @return  当前对象
      * */
     public function where($opt=""){
         $this->fileds["where"]=$opt==""?"":"where ".$opt;
         return $this;
     }
     /*
-         * @param    string
-         * @example  order("age desc")
-         * @return   当前对象的指针
-         * */
+     * @param    string
+     * @example  order("age desc")
+     * @return   当前对象
+     * */
     public function order($opt=""){
         $this->fileds["order"]=$opt==""?"":"order by ".$opt;
         return $this;
@@ -117,7 +129,7 @@ class db{
     /*
      * @param    string (index,length)
      * @example  limit("0,2")
-     * @return   当前对象的指针
+     * @return   当前对象
      * */
     public function limit($opt=""){
         $this->fileds["limit"]=$opt==""?"":"limit ".$opt;
@@ -208,14 +220,26 @@ class db{
 }
 /*
  * //测试
-$db=new db("stu");
-//    $arr=$db->select("select name from stu where id=0");
-//    $arr=$db->insert("insert into table (name,age) values ('zhangsan','12')");
-//    $arr=$db->where("id=0")->delete();
-$arr=$db->filed("age='10'")->where("id=10")->update("name='zhangsan'");
+    $db=new db("stu");
+    $arr=$db->select("select name from stu where id=0");
+    $arr=$db->insert("insert into table (name,age) values ('zhangsan','12')");
+    $arr=$db->where("id=0")->delete();
+    $arr=$db->filed("age='10'")->where("id=10")->update("name='zhangsan'");
 
-var_dump($arr);*/
+    var_dump($arr);
+*/
 
+/*
+ *  更换在已经连接的基础上更换连接的数据库，或者操作的表
+    $db->dbname="test";
+    $db->tablename="category";
+    $db->config();
+    $result=$db->select();
+    var_dump($result);
 
+    $aa=new db('stu');
+    var_dump($aa->select());
+ *
+ * */
 
 ?>
