@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{CSS_PATH}/admin/reg.css">
+</head>
+<script src="{JS_PATH}/jquery-min.js"></script>
+<script src="{JS_PATH}/admin/reg.js"></script>
+
+<body>
+<form action="index.php?m=admin&a=addReg" method="post">
+    <div class="box">
+        <h3>注册页</h3>
+        用户名：<input type="text" value="" name="username" use="no" /><br/><span class="message"></span><br/>
+        密　码：<input type="password" value="" name="password" use="no" /><br/><span class="message"></span><br/>
+        验证码：<input type="text" value="" name="code" size="4" use="no"><img src="index.php?m=admin&f=index&a=code" alt="验证码" title="点击更换" class="code" onclick="this.src='index.php?m=admin&f=index&a=code&'+Math.random()"><span class="codes"></span><br/>
+        <input type="submit" value="注册" disabled="disabled" /><br/>
+        <p>已有用户名，请<a href="index.php?m=admin&a=login">点击登录</a></p>
+    </div>
+</form>
+</body>
+
+</html>
