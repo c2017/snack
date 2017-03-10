@@ -7,8 +7,9 @@ class db{
     private $username="root";
     private $password="";
     public $tablename="";         //要操作的表格的名称
-    private $connect;             //连接db
+    public $connect;             //连接db
     public $fileds;               //保存一系列sql语句组合
+    public $insert_id;
 
     /*
      * @param    string  要操作的数据库的表名，必须传参
@@ -58,12 +59,13 @@ class db{
         }
 
         $result=$this->connect->query($sql);
-
+        $arr=array();
         while($row=$result->fetch_assoc()){
             $arr[]=$row;
         }
 
         return $arr;
+
     }
 
     /*@param    [string] 表示查找的字段
@@ -199,9 +201,9 @@ class db{
                 $sql="insert into ".$this->tablename." (".$temp[0].") values (".$temp[1].")";
             }
         }
-
+//        echo $sql;
         $this->connect->query($sql);
-
+        $this->insert_id=$this->connect->insert_id;
         return $this->connect->affected_rows;
     }
 
@@ -215,7 +217,5 @@ $db=new db("stu");
 $arr=$db->filed("age='10'")->where("id=10")->update("name='zhangsan'");
 
 var_dump($arr);*/
-
-
 
 ?>
