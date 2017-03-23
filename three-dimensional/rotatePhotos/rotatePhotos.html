@@ -76,9 +76,9 @@
                 var bigbox=box;
             }
 
-            let wid=parseInt(getComputedStyle(bigbox,null).width);
+            let wid=parseInt(getComputedStyle(bigbox,null)["width"]);
             let widths=wid+"px";
-            let hei=parseInt(getComputedStyle(bigbox,null).height);
+            let hei=parseInt(getComputedStyle(bigbox,null)["height"]);
             hei=hei/num;
             let heights=hei+"px";
             let arr=[];
