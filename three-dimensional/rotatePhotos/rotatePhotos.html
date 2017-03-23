@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background:#ccc;
+        }
+        .fbox{
+            height:460px;
+            width:1000px;
+            border:10px solid #ddd;
+            overflow:hidden;
+            position:fixed;
+            left:0;
+            top:0;
+            bottom:0;
+            right:0;
+            margin:auto;
+        }
+        .zhuzi{
+            height:100%;
+            width:20px;
+            background:linear-gradient(90deg,#ccc,#fff,#ccc);
+            position:fixed;
+            left:50%;
+            margin-left:-10px;
+            top:0;
+        }
+        .bigbox{
+            height: 400px;
+            width:800px;
+            position:absolute;
+            left:50%;
+            margin-left:-400px;
+            top:50%;
+            margin-top:-200px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="zhuzi"></div>
+<div class="fbox">
+
+    <div class="bigbox">
+
+    </div>
+</div>
+
+</body>
+<script>
+
+    window.onload=function(){
+
+        /*
+         * 创建动态旋转图片展示
+         *
+         * @parma box{selector|elem object}  显示几块
+         * @parma num{number}  显示几块
+         * @author 常圆圆 c2017@foxmail.com 2017-3-23
+         *
+         * */
+        function Photos(box,num){
+            var num=num||10;
+            if(!box){
+                alert("请传入盒子");
+                return false;
+            }
+
+            /*画布*/
+            if(typeof box=="string"){
+                bigbox=document.querySelector(".bigbox");
+            }else if(box.nodeType==1){
+                var bigbox=box;
+            }
+
+            let wid=parseInt(getComputedStyle(bigbox,null).width);
+            let widths=wid+"px";
+            let hei=parseInt(getComputedStyle(bigbox,null).height);
+            hei=hei/num;
+            let heights=hei+"px";
+            let arr=[];
+
+            /*创建场景*/
+            for(let i=0;i<num;i++){
+
+                let stage=document.createElement("div");
+                stage.style.cssText="height:"+heights+";width:"+widths+"perspective:5000px;";
+
+                let box=document.createElement("div");
+                box.style.cssText="height:100%;width:100%;position:relative;transition:transform 2s linear "+(i*0.2)+"s;transform-style:preserve-3d;transform-origin:center center "+wid/2+"px";
+
+                for(let j=0;j<6;j++){
+                    let panel=document.createElement("div");
+                    // 上边的面
+                    if(j==0){
+                        panel.style.cssText="height:"+widths+";width:"+widths+";background:plum;position:absolute;left:0;top:0;transform-origin:top;transform:rotateX(90deg)";
+                    }else if(j==1){
+                        //左边的面
+                        panel.style.cssText="height:"+heights+";width:"+widths+";background:url(img800400/"+j+".jpg) no-repeat 0 "+(-i*hei)+"px;position:absolute;left:0;top:0;transform-origin:left;transform:rotateY(-90deg)";
+                    }else if(j==2){
+                        //里边的面
+                        panel.style.cssText="height:"+heights+";width:"+widths+";position:absolute;left:0;top:0;background:url(img800400/"+j+".jpg) no-repeat 0 "+(-i*hei)+"px";
+                    }else if(j==3){
+                        //右边的面
+                        panel.style.cssText="height:"+heights+";width:"+widths+";background:url(img800400/"+j+".jpg) no-repeat 0 "+(-i*hei)+"px;position:absolute;right:0;top:0;transform-origin:right;transform:rotateY(90deg)";
+                    }else if(j==4){
+                        //前边的面
+                        panel.style.cssText="height:"+heights+";width:"+widths+";background:url(img800400/"+j+".jpg) no-repeat 0 "+(-i*hei)+"px;position:absolute;right:0;top:0;transform:translateZ("+widths+")";
+                    }else if(j==5){
+                        //下边的面
+                        panel.style.cssText="height:"+widths+";width:"+widths+";background:pink;position:absolute;left:0;bottom:0;transform-origin:bottom;transform:rotateX(-90deg)";
+                    }
+
+                    box.appendChild(panel);
+                }
+
+
+                stage.appendChild(box);
+                bigbox.appendChild(stage);
+
+                arr.push(box);
+            }
+
+
+
+            var start=0;
+            var step=90;
+            var t=setInterval(function(){
+
+                start=start+step;
+                for(let i=0;i<arr.length;i++){
+                    arr[i].style.transform="rotateY("+start+"deg)";
+                }
+
+            },6000);
+
+        }
+
+
+        Photos(".bigbox",10);
+    }
+
+</script>
+</html>
