@@ -1,0 +1,237 @@
+/*顶部图片 start*/
+.topimg{
+    height:1.88rem;
+    width:100%;
+    overflow:hidden;
+}
+.topimg a{
+    display:block;
+    height:100%;
+    width:100%;
+    background:#e47267;
+}
+.topimg a img{
+    height:100%;
+}
+/*顶部图片 end*/
+/*最新消息 start*/
+.news{
+    height:0.64rem;
+    width:100%;
+    padding-top:0.15rem;
+    border-top:0.1rem solid #e6e6e6;
+    border-bottom:0.1rem solid #e6e6e6;
+}
+.news .newsimg{
+    float:left;
+    width:1.75rem;
+    height:0.5rem;
+    line-height:0.5rem;
+    border-right:0.01rem solid #b5b5b5;
+    text-align:center;
+}
+.news .newsimg img{
+    text-align:center;
+    vertical-align:middle;
+    height:0.28rem;
+}
+.news .newstext{
+    float:left;
+    height:0.56rem;
+    padding-left:0.3rem;
+    line-height:0.56rem;
+    font-size:0.24rem;
+    color:#333;
+}
+.news .newstext span{
+    margin:0 0.04rem;
+}
+.news .newstext .add{
+    color:#de3131;
+    font-weight:600;
+}
+/*最新消息 end*/
+
+/*夺宝 start*/
+.content{
+    width:100%;
+    height:auto;
+    margin-bottom:0.25rem;
+}
+.content .topbox{
+    height:1.4rem;
+    padding-top:0.16rem;
+}
+.content .topbox .duoicon{
+    width:1.6rem;
+    float:left;
+}
+.content .topbox .duoicon img{
+    height:0.92rem;
+}
+.content .topbox .yuE{
+    padding-top:0.54rem;
+    height:0.3rem;
+    float:left;
+    width:3.7rem;
+    font-size:0.22rem;
+}
+.content .topbox .yuE span{
+    margin-left:0.34rem;
+    margin-right:0.3rem;
+    font-size:0.28rem;
+}
+.content .chongzhi{
+    padding-top:0.37rem;
+    float:left;
+}
+.content .chongzhi a{
+    display:block;
+    height:0.6rem;
+    width:1.92rem;
+    background:#f85e65;
+    background:linear-gradient(#fd6769,#ec4b5d);
+    line-height:0.6rem;
+    text-align:center;
+    color:#fff;
+    border:0.01rem solid #a72330;
+    border-radius:0.05rem;
+}
+.content ul{
+    margin:0 auto;
+    width:7.02rem;
+}
+.content ul li{
+    height:1.07rem;
+    border-top:0.01rem solid #e6e6e6;
+    line-height:1.07rem;
+    font-size:0.28rem;
+}
+.content ul li .right{
+    float:right;
+    white-space:nowrap;
+}
+    /*数量 start*/
+.content ul>.number span{
+    margin-left:0.3rem;
+}
+.content ul>.number .btn{
+    display:inline-block;
+    vertical-align:middle;
+    height:0.48rem;
+    width:0.73rem;
+    text-align:center;
+    line-height:0.48rem;
+    color:#fff;
+    background:#eee;
+    border-radius:0.05rem;
+}
+
+.content ul>.number .min{
+    background:#52dfcf;
+}
+.content ul>.number .max{
+    background:#f45963;
+}
+.content ul>.number .jian,
+.content ul>.number .add{
+    color:#707070;
+    font-size:0.4rem;
+    line-height:0.4rem;
+}
+.content ul>.number i{
+    font-style:normal;
+}
+    /*数量 end*/
+.content ul>li .money{
+    font-weight:500;
+}
+.content ul .shouxufei,
+.content ul .danwei{
+    color:#707070;
+}
+.content ul .shouxufei{
+    font-size:0.26rem;
+}
+.content ul .btnbox{
+    display:flex;
+    width:100%;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    align-items:center;
+}
+.content ul .btnbox div{
+    height:0.8rem;
+    width:3.40rem;
+    border-radius:0.06rem;
+    background:#000;
+    line-height:0.8rem;
+    overflow:hidden;
+}
+.content ul .btnbox div button{
+    height:100%;
+    width:100%;
+    border:0;
+    color:#fff;
+}
+.content ul .btnbox div .btn-max{
+    background:linear-gradient(#fd686a,#eb4b5d);
+}
+.content ul .btnbox div .btn-min{
+    background:linear-gradient(#52decf,#4ac8ba);
+}
+.content ul .notice{
+    height:1.45rem;
+    padding-top:0.05rem;
+    padding-left:0.1rem;
+    padding-right:0.1rem;
+    background:#eeeeee;
+}
+.content ul .notice .title{
+    line-height:0.6rem;
+    color:#444444;
+    font-size:0.26rem;
+}
+.content ul .notice p{
+    line-height:0.35rem;
+    color:#666666;
+    text-indent:2em;
+    font-size:0.23rem;
+}
+/*夺宝 end*/
+/*底部盒子 start*/
+.bottom{
+    height:1.4rem;
+    width:100%;
+    background:#e6e6e6;
+    padding-top:0.26rem;
+    padding-right:0.24rem;
+    box-sizing:border-box;
+}
+.bottom a{
+    float:right;
+    width:1.98rem;
+    height:0.58rem;
+    border:0.01rem solid #898989;
+    text-align:center;
+    line-height:0.58rem;
+    color:#444;
+    font-size:0.26rem;
+    border-radius:0.05rem;
+}
+/*底部盒子 end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

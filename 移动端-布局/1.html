@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/1.css">
+</head>
+<body>
+<!--顶部信息 start-->
+<div class="topbox">
+
+    <!--头像 start-->
+    <div class="touxiang">
+        <div class="photo">
+            <img src="images/girl-pic.jpg" alt="">
+        </div>
+        <div class="uname">
+            ID: <span>N8ZK</span>
+        </div>
+    </div>
+    <!--头像  end-->
+    <div class="line linew">
+
+    </div>
+    <div class="line liner">
+
+    </div>
+    <div class="rightbox">
+        <div class="topbtn">
+            <a href="#">
+                <img src="images/btn_refurbish.png" alt="">
+            </a>
+            <a href="#">
+                <img src="images/btn_entry.png" alt="">
+            </a>
+        </div>
+        <div class="infobox">
+            <div class="text">
+                <div class="opt">余额:</div>
+                <div class="num num1">28.0</div>
+            </div>
+            <div class="text">
+                <div class="opt">佣金:</div>
+                <div class="num num2">28.0</div>
+            </div>
+        </div>
+        <div class="btnbox">
+            <a href="" class="chongzhi">
+                充值
+            </a>
+            <a href="" class="duihuan">
+                兑换
+            </a>
+        </div>
+    </div>
+</div>
+<!--顶部信息 end-->
+<!--最新消息 start-->
+<div class="news">
+    <div class="newsimg">
+        <img src="images/news.png" alt="">
+    </div>
+    <div class="newstext">
+        不会玩？先来看看新手教程吧！
+    </div>
+</div>
+<!--最新消息 end-->
+<!--新手教程 start-->
+<div class="xinshou">
+    <a href="#">
+        <img src="images/xinshou.jpg" alt="">
+    </a>
+</div>
+<!--新手教程 end-->
+<!--夺宝 start-->
+<div class="duobao">
+    <div class="duobaoimg">
+        <a href="#">
+            <img src="images/banner-duobao.png" alt="">
+        </a>
+    </div>
+    <ul class="tongji">
+       <li>
+           <a href="">
+               <h2>10次夺宝+
+                   <span>2.00</span>
+               </h2>
+               <p>已经参与
+                <span>0</span>
+                   次
+               </p>
+               <div class="line"></div>
+                <div class="icon">
+                    <img src="images/pic-gift.png" alt="">
+                </div>
+           </a>
+       </li>
+        <li>
+            <a href="">
+                <h2>
+                    查看最新排行榜
+                </h2>
+                <p>
+                    看看你的排名
+                </p>
+                <div class="line"></div>
+                <div class="icon">
+                    <img src="images/pic-ranking.png" alt="">
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<!--夺宝 end-->
+<!--底部菜单 start-->
+<ul class="bottom">
+    <li>
+        <a href="#">
+            <h2>交易明细</h2>
+            <p>您的私人专用账本</p>
+            <div class="line"></div>
+            <div class="icon">
+                <img src="images/pic-mingxi.png" alt="">
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <h2>代理赚钱</h2>
+            <p>足不出户就能赚钱</p>
+            <div class="line"></div>
+            <div class="icon">
+                <img src="images/pic-agent.png" alt="">
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <h2>联系客服</h2>
+            <p>为您解疑答惑</p>
+            <div class="line"></div>
+            <div class="icon">
+                <img src="images/pic-contect.png" alt="">
+            </div>
+        </a>
+    </li>
+</ul>
+<!--底部菜单 end-->
+</body>
+<script>
+    function rem(originw){
+        var bili;
+        var cw=document.documentElement.clientWidth;
+        bili=parseInt(cw/originw*100)+"px";
+        var root=document.querySelector(":root");
+        root.style.fontSize=bili;
+    }
+    rem(750);
+
+</script>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>增点夺宝</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/2.css">
+</head>
+<body>
+<!--顶部图片 start-->
+<div class="topimg">
+    <a href="#">
+        <img src="images/pic2-rules.png" alt="">
+    </a>
+</div>
+<!--顶部图片 end-->
+<!--最新消息 start-->
+<div class="news">
+    <div class="newsimg">
+        <img src="images/pic2-dongtai.png" alt="">
+    </div>
+    <div class="newstext">
+        用户ID
+        <span>AXXXQ</span>
+        获利
+        <span class="add">
+            10
+        </span>
+        元
+    </div>
+</div>
+<!--最新消息 end-->
+<!--夺宝 start-->
+<div class="content">
+    <div class="topbox">
+        <div class="duoicon">
+            <img src="images/pic2-duo.png" alt="">
+        </div>
+        <div class="yuE">
+            余额
+            <span>22.00</span>
+            元
+        </div>
+        <div class="chongzhi">
+            <a href="#">充值</a>
+        </div>
+    </div>
+    <ul>
+        <li class="number">
+            数量
+            <div class="right">
+                <span class="btn min">最小</span>
+                <span class="btn jian">-</span>
+                <span class="shou">
+                    <i>1</i>手
+                </span>
+                <span class="btn add">+</span>
+                <span class="btn max">最大</span>
+            </div>
+        </li>
+        <li>
+            预期收益
+            <div class="right">
+                <span class="money">
+                    10.0
+                </span>
+                <span class="danwei">
+                    元
+                </span>
+            </div>
+
+        </li>
+        <li>
+            手续费
+            <div class="right">
+                <span class="shouxufei">
+                    1.0
+                </span>
+                <span class="danwei">
+                    元
+                </span>
+            </div>
+
+        </li>
+        <li class="btnbox">
+            <div>
+                <button class="btn-max">猜大</button>
+            </div>
+            <div>
+                <button class="btn-min">猜小</button>
+            </div>
+
+        </li>
+        <li class="notice">
+            <div class="title">
+                温馨提示：
+            </div>
+            <p>
+                每次“猜大”、“猜小”后充值0.1元，充值后微信交易单号尾数“5~9”为大、“0~4”为小。
+            </p>
+        </li>
+    </ul>
+</div>
+<!--夺宝 end-->
+<!--底部盒子 start-->
+<div class="bottom">
+    <a href="#">如何验证</a>
+</div>
+<!--底部盒子 end-->
+</body>
+<script>
+    function rem(originw){
+        var bili;
+        var cw=document.documentElement.clientWidth;
+        bili=parseInt(cw/originw*100)+"px";
+        var root=document.querySelector(":root");
+        root.style.fontSize=bili;
+    }
+    rem(750);
+
+</script>
+</html>

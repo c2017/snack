@@ -1,0 +1,321 @@
+/*顶部信息 start*/
+.topbox{
+    height:3.20rem;
+    background:#d95c52;
+}
+
+    /*头像 start*/
+.topbox .touxiang{
+    width:3.17rem;
+    height:100%;
+    overflow:hidden;
+    background-image:url(../images/photo.png);
+    background-size:100% auto;
+    background-repeat: repeat-y;
+    position:relative;
+    float:left;
+}
+
+.topbox .touxiang .photo{
+    position:absolute;
+    left:0.83rem;
+    top:0.64rem;
+    height:1.50rem;
+    width:1.50rem;
+    line-height:1.50rem;
+    text-align:center;
+    border-radius: 50%;
+    overflow:hidden;
+}
+.topbox .touxiang .photo img{
+    height:100%;
+}
+.topbox .touxiang .uname{
+    width:100%;
+    height:0.22rem;
+    white-space:nowrap;
+    font-size:0.22rem;
+    text-align:center;
+    color:#fff;
+    position:absolute;
+    left:0;
+    bottom:0.36rem;
+}
+    /*头像 end*/
+.topbox .line{
+    height:2.20rem;
+    margin-top:0.5rem;
+    width:0.01rem;
+    float:left;
+}
+.topbox .linew{
+    background:#fff;
+}
+.topbox .liner{
+    background:#984039;
+}
+
+.topbox .rightbox{
+    position:absolute;
+    left:3.19rem;
+    top:0;
+    width:4rem;
+}
+    /*右上按钮 start*/
+.topbox .topbtn{
+    height:0.50rem;
+    padding-top:0.1rem;
+}
+.topbox .topbtn a{
+    margin-left:0.1rem;
+    float:right;
+    height:100%;
+    width:0.5rem;
+}
+.topbox .topbtn img{
+    height:100%;
+}
+.topbox .rightbox .infobox{
+    padding-top:0.32rem;
+    padding-left:0.32rem;
+    box-sizing:border-box;
+
+}
+.topbox .rightbox .infobox .text{
+    height:0.56rem;
+    position:relative;
+    white-space:nowrap;
+}
+.topbox .rightbox .infobox .text .opt{
+    position:absolute;
+    left:0;
+    bottom:0.17rem;
+    color:#fff;
+    font-size:0.26rem;
+}
+.topbox .rightbox .infobox .text .num{
+    position:absolute;
+    left:0.88rem;
+    bottom:0.17rem;
+
+    color:#fff;
+}
+.topbox .rightbox .infobox .text .num1{
+    font-size:0.34rem;
+    font-weight:600;
+}
+.topbox .rightbox .infobox .text .num2{
+    font-size:0.28rem;
+}
+
+.topbox .btnbox{
+    height:0.56rem;
+    padding-top:0.24rem;
+    padding-left:0.32rem;
+}
+.topbox .btnbox a{
+    display:inline-block;
+    height:0.56rem;
+    width:1.45rem;
+    line-height:0.56rem;
+    text-align:center;
+    box-sizing:border-box;
+    border-radius:5px;
+    font-size:0.33rem;
+}
+.topbox .btnbox .chongzhi{
+    background:#fff;
+    color:#d95c52;
+    margin-right:0.36rem;
+}
+.topbox .btnbox .duihuan{
+    border:1px solid #fff;
+    color:#fff;
+}
+    /*右上按钮 end*/
+/*顶部信息 end*/
+/*最新消息 start*/
+.news{
+    height:0.79rem;
+    width:100%;
+    box-shadow:0 0.02rem 0.05rem rgba(100,100,100,0.5) inset;
+    box-sizing:border-box;
+    padding-top:0.15rem;
+}
+.news .newsimg{
+    float:left;
+    width:1.75rem;
+    height:0.5rem;
+    line-height:0.5rem;
+    border-right:0.01rem solid #b5b5b5;
+    text-align:center;
+}
+.news .newsimg img{
+    text-align:center;
+    vertical-align:middle;
+    height:0.28rem;
+}
+.news .newstext{
+    float:left;
+    height:0.56rem;
+    padding-left:0.3rem;
+    line-height:0.56rem;
+    font-size:0.22rem;
+    color:#333;
+}
+/*最新消息 end*/
+/*新手教程 start*/
+.xinshou{
+    width:100%;
+    height:2.04rem;
+    border-bottom:0.1rem solid #e6e6e6;
+}
+.xinshou a{
+    display:block;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background:#e47267;
+}
+.xinshou a img{
+    height:100%;
+}
+/*新手教程 end*/
+/*夺宝 start*/
+.duobao{
+    height:3.77rem;
+    width:100%;
+    background:#e6e6e6;
+    position:relative;
+}
+.duobao .duobaoimg{
+    height:3.63rem;
+    width:3.73rem;
+    float:left;
+    margin-right:0.3rem;
+}
+.duobao .duobaoimg a{
+    display:block;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+}
+
+.duobao .duobaoimg img{
+    width:100%;
+}
+.duobao ul{
+    position:absolute;
+    top:0;
+    right:0;
+    width:3.74rem;
+}
+.duobao ul>li{
+    height:1.81rem;
+    width:100%;
+    background:#fff;
+    position:relative;
+    box-sizing:border-box;
+    padding-left:0.2rem;
+    padding-top:0.36rem;
+    margin-bottom:0.03rem;
+}
+.duobao ul>li a{
+    display:block;
+}
+.duobao ul>li h2{
+    font-weight:600;
+    font-size:0.26rem;
+}
+.duobao ul>li h2 span{
+    color:#fc3040;
+    font-size:0.3rem;
+}
+.duobao ul>li p{
+    color:#444;
+    line-height:0.50rem;
+    font-size:0.24rem;
+    font-weight:500;
+}
+.duobao ul>li .line{
+    height:0.03rem;
+    width:0.3rem;
+    background:#666666;
+}
+
+.duobao ul>li .icon{
+    height:1.16rem;
+    width:1.15rem;
+    position:absolute;
+    right:0.3rem;
+    bottom:0.1rem;
+}
+.duobao ul>li .icon img{
+    height:100%;
+}
+/*夺宝 end*/
+/*底部菜单 start*/
+.bottom{
+    height:2.16rem;
+    width:100%;
+    background:#e6e6e6;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+}
+.bottom li{
+    width:2.49rem;
+    height:2.06rem;
+    background:#fff;
+    position:relative;
+}
+.bottom li a{
+    display:block;
+    box-sizing: border-box;
+    padding-left:0.2rem;
+    padding-top:0.22rem;
+}
+.bottom li h2{
+    font-weight:600;
+    font-size:0.26rem;
+}
+.bottom li h2 span{
+    color:#fc3040;
+    font-size:0.3rem;
+}
+.bottom li p{
+    color:#444;
+    line-height:0.5rem;
+    font-size:0.24rem;
+    font-weight:500;
+}
+.bottom li .line{
+    height:0.03rem;
+    width:0.3rem;
+    background:#666666;
+    margin-top:0.10rem;
+}
+
+.bottom li .icon{
+    height: 0.91rem;
+    width:0.91rem;
+    position:absolute;
+    bottom:0.1rem;
+    right:0.35rem;
+}
+.bottom li .icon img{
+    height:100%;
+}
+/*底部菜单 end*/
+
+
+
+
+
+
+
+
+
+
+
