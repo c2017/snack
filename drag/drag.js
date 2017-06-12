@@ -1,161 +1,189 @@
 /**
- * Created by lenovo on 2017/2/13.
+ * Created by lenovo on 2017/2/14.
  */
 //拖拽：面向对象的方式；边界控制，方向控制，动画控制（拖动速度快的话有动画效果）
-//    边界控制：range   true:有边界控制  false：整个浏览器窗口
-//    方向控制：direction  "level"  "vertival" "all"
-//    动画控制：animation  "yes"  "no"
-    class Drag{
-        constructor(obj,range,direction,animation){
-        //  要操作的元素
-            this.obj=obj;
-            this.obj.width=obj.offsetWidth;
-            this.obj.height=obj.offsetHeight;
-            this.obj.left=0;
-            this.obj.top=0;
+//  arguments:{
+//    selector:selector  必填
+//    边界控制：range.{minx:,miny:,maxx:,maxy:}
+//             range:document  默认
+//             range:false    不判断边界
+//             range:true     相对于它定位的那个父元素判断边界
+//    方向控制：dir.{x:true/false,y:true/false}  默认:true true
+//    动画控制：animate:true/false   默认:true
+//  }
 
-        //  参数的初始化
-            this.range=range==true?true:false;
-            this.direciton=direction||"all";
-            this.animation=animation||"yes";
 
-        //  父元素
-            this.obj.fbox=document;
-            this.sw=this.obj.fbox.documentElement.clientWidth;
-            this.sh=this.obj.fbox.documentElement.clientHeight;
+class Drag{
 
-        //    动画属性
-            this.xishu=0.8;
-            this.objlen={x:0,y:0};
-            this.objstart={x:this.obj.left,y:this.obj.top};
-            this.objend={x:0,y:0};
+    constructor (obj){
+        // 获取元素
+        this.elems=document.querySelectorAll(obj.selector);
+        this.eleparent=this.elems[0].offsetParent;
+
+        //参数初始化
+        this.animate=obj.animate===false?obj.animate:true;
+
+        //边界初始化
+        this.rangeInitialize(obj);
+
+        // 判断方向
+        if(obj.dir===undefined){
+            obj.dir={x:true,y:true}
+        }else{
+            this.dirx=obj.dir.x===false?obj.dir.x:true;
+            this.diry=obj.dir.y===false?obj.dir.y:true;
         }
 
-        // 开始方法，需要调用
-        start(){
-            this.fbox();
-        }
-        // 鼠标按下
-        down(){
-            var that=this;
-            this.obj.onmousedown=function(){
-                that.move();
-                that.up();
-            }
-        }
-        // 鼠标移动
-        move(){
-            var that=this;
-            window.onmousemove=function(e){
-                var e=event||window.event;
-                var ex= e.clientX;
-                var ey= e.clientY;
-                that.obj.left=ex-that.obj.width/2;
-                that.obj.top=ey-that.obj.height/2;
-
-                that.rangefun();
-
-                that.objend.x=that.obj.left;
-                that.objend.y=that.obj.top;
-                that.objlen.x=that.objend.x-that.objstart.x;
-                that.objlen.y=that.objend.y-that.objstart.y;
-                that.objstart.x=that.obj.left;
-                that.objstart.y=that.obj.top;
-
-                if(that.direciton=="all"){
-                    that.obj.style.left=that.obj.left+"px";
-                    that.obj.style.top=that.obj.top+"px";
-                }else if(that.direciton=="level"){
-                    that.obj.style.left=that.obj.left+"px";
-                }else if(that.direciton=="vertical"){
-                    that.obj.style.top=that.obj.top+"px";
-                }
-            }
-        }
-        // 鼠标抬起
-        up(){
-            var that=this;
-            window.onmouseup=function(){
-                window.onmousemove=null;
-                window.onmouseup=null;
-                //console.log(this.onmousemove);
-            }
-            if(this.animation=="yes"){
-                var t;
-
-                t=setInterval(function(){
-                    if(that.objlen.y<1 || that.objlen.y<-1){
-                        clearInterval(t);
-                    }
-                    that.obj.left+=that.objlen.x*that.xishu;
-                    that.obj.top+=that.objlen.y*that.xishu;
-                    that.rangefun();
-                    that.objlen.x*=that.xishu;
-                    that.objlen.y*=that.xishu;
-                    that.directionfun();
-                },100);
-
-            }
-
-        }
-
-        directionfun(){
-            if(this.direciton=="all"){
-                this.obj.style.left=this.obj.left+"px";
-                this.obj.style.top=this.obj.top+"px";
-            }else if(this.direciton=="level"){
-                this.obj.style.left=this.obj.left+"px";
-            }else if(that.direciton=="vertical"){
-                this.obj.style.top=this.obj.top+"px";
-            }
-        }
-
-        rangefun(){
-            if(this.obj.left<0){
-                this.obj.left=0;
-            }
-            if(this.obj.top<0){
-                this.obj.top=0;
-            }
-            if(this.obj.left>(this.sw-this.obj.width)){
-                this.obj.left=this.sw-this.obj.width;
-            }
-            if(this.obj.top>(this.sh-this.obj.height)){
-                this.obj.top=this.sh-this.obj.height;
-            }
-        }
-
-        screensize(){
-            var that=this;
-            window.onresize=function(){
-                that.sw=document.documentElement.clientWidth;
-                that.sh=document.documentElement.clientHeight;
-            }
-        }
-
-        fbox(){
-            if(this.range==false){
-                this.obj.fbox=document;
-                this.screensize();
-            }else if(this.range==true){
-                this.obj.fbox=this.obj.parentNode;
-                if(this.obj.fbox.currentStyle){
-                    this.sw=parseInt(this.obj.fbox.currentStyle.width);
-                    this.sh=parseInt(this.obj.fbox.currentStyle.height);
-                }else{
-                    this.sw=parseInt(getComputedStyle(this.obj.fbox,null).width);
-                    this.sh=parseInt(getComputedStyle(this.obj.fbox,null).height);
-                }
-            }
-            this.down();
-        }
+        //console.log(this.elems.length);
+        //开启拖拽
+        this.startDarg();
 
     }
 
+    //边界初始化
+    rangeInitialize(obj){
+        if(obj.range==false){
+            return;
+        }else if(obj.range==true){
+            this.minx=0;
+            this.miny=0;
+            this.maxx=this.eleparent.clientWidth;
+            this.maxy=this.eleparent.clientHeight;
+        }else if(obj.range==document||obj.range===undefined) {
+            this.minx = -this.eleparent.offsetLeft;
+            this.miny = -this.eleparent.offsetTop;
+            this.maxx = document.documentElement.clientWidth - this.eleparent.offsetLeft - this.eleparent.clientLeft;
+            this.maxy = document.documentElement.clientHeight - this.eleparent.offsetTop - this.eleparent.clientTop;
+        }else{
+            this.minx=obj.range.minx===undefined?null:obj.range.minx;
+            this.miny=obj.range.miny===undefined?null:obj.range.miny;
+            this.maxx=obj.range.maxx===undefined?null:obj.range.maxx;
+            this.maxy=obj.range.maxy===undefined?null:obj.range.maxy;
+        }
+    }
+
+    // 开始拖拽
+    startDarg(){
+        var that=this;
+        for(var i=0;i<this.elems.length;i++){
+            this.elems[i].onmousedown=function(e){
+                //阻止浏览器的默认事件
+                e.preventDefault();
+
+                var ex= e.clientX;
+                var ey= e.clientY;
+
+                //当前盒子距离定位的父元素的距离
+                var ox=this.offsetLeft;
+                var oy=this.offsetTop;
+                // 事件源到文档的距离 - 盒子到有定位的父元素的距离。这个长度是固定的
+                this.lenx=ex-ox;
+                this.leny=ey-oy;
+
+                //开始的时候鼠标的位置
+                this.prex=ex;
+                this.prey=ey;
+
+                that.move(this);
+                that.up(this);
 
 
-    var box=document.querySelector(".box");
-    var drag=new Drag(box,false,"all","yes");
-    drag.start();
+
+
+            }
+        }
+    }
+
+    move(obj){
+        var that=this;
+        window.onmousemove=function(e){
+            //阻止浏览器的默认事件
+            e.preventDefault();
+
+            //事件源到文档的距离 - 长度 = 盒子应该距离定位的父元素的距离
+            obj.left= e.clientX-obj.lenx;
+            obj.top= e.clientY-obj.leny;
+
+            //移动后鼠标的位置
+            obj.nextx= e.clientX;
+            obj.nexty= e.clientY;
+            obj.stepx=obj.nextx-obj.prex;
+            obj.stepy=obj.nexty-obj.prey;
+            obj.prex=obj.nextx;
+            obj.prey=obj.nexty;
+
+            //判断边界
+            that.rangeDarg(obj);
+            that.dirDarg(obj);
+
+        }
+    }
+
+    // 鼠标抬起注销事件
+    up(obj){
+        var that=this;
+        window.onmouseup=function(){
+            window.onmousemove=null;
+            if(that.animate==true){
+                that.animatefun(obj);
+            }
+            window.onmouseup=null;
+
+        }
+    }
+
+    //判断边界
+    rangeDarg(obj){
+        if(this.minx!==null&&obj.left<this.minx){
+            obj.left=this.minx;
+        }
+        if(this.miny!==null&&obj.top<this.miny){
+            obj.top=this.miny;
+        }
+        if(this.maxx!==null&&obj.left>this.maxx-obj.offsetWidth){
+            obj.left=this.maxx-obj.offsetWidth;
+        }
+        if(this.maxy!==null&&obj.top>this.maxy-obj.offsetHeight){
+            obj.top=this.maxy-obj.offsetHeight;
+        }
+    }
+
+    //判断方向
+    dirDarg(obj){
+        if(this.dir){
+            if(this.dirx){
+                obj.style.left=obj.left+"px";
+            }
+            if(this.diry){
+                obj.style.top=obj.top+"px";
+            }
+        }else{
+            obj.style.left=obj.left+"px";
+            obj.style.top=obj.top+"px";
+        }
+    }
+
+    //动画效果
+    animatefun(obj){
+        var xishu=0.7;
+        var that=this;
+        var t=setInterval(function(){
+            obj.stepx=obj.stepx*xishu;
+            obj.stepy=obj.stepy*xishu;
+
+            if(Math.abs(obj.stepx)>=1||Math.abs(obj.stepy)>=1){
+                obj.left+=obj.stepx;
+                obj.top+=obj.stepy;
+                that.rangeDarg(obj);
+                that.dirDarg(obj);
+            }else{
+                clearInterval(t);
+            }
+        },50);
+    }
+}
+
+
+
 
 
