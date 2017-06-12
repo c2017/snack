@@ -1,0 +1,356 @@
+*{
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+.content{
+    height:700px;
+    width:500px;
+    margin-top:50px;
+    margin-left:50px;
+}
+.header{
+    height:210px;
+    padding-top:80px;
+    width:310px;
+    border-radius:140px;
+    border:2px solid #000;
+    box-shadow:-8px 9px 10px rgba(0,0,0,0.4);
+    background:linear-gradient(45deg,#07485a,#10a3cb,#0cafd8,#1fc4ec,#fff);
+    position:relative;
+}
+.header .face{
+    height:200px;
+    width:250px;
+    border:2px solid #000;
+    background:#fff;
+    border-radius:120px;
+    margin:0 auto;
+    text-align:center;
+    position:relative;
+}
+.header .eyes{
+    height:84px;
+    width:70px;
+    border:2px solid #000;
+    border-radius:30px;
+    display:inline-block;
+    margin:-40px -3px;
+    background:#fff;
+}
+.header .eyes .pupli{
+    display:block;
+    height:14px;
+    width:14px;
+    border-radius: 50%;
+    background:#000;
+}
+.header .eyes:nth-child(1) .pupli{
+    position:relative;
+    left:40px;
+    top:50px;
+}
+.header .eyes:nth-child(2) .pupli{
+    position:relative;
+    left:15px;
+    top:50px;
+}
+.header .nose{
+    height:30px;
+    width: 30px;
+    border:2px solid #000;
+    border-radius:50%;
+    background:radial-gradient(15px at 18px 10px,#fff ,#c93e00 50%);
+    position:absolute;
+    left:50%;
+    margin-left:-16px;
+    top:44px;z-index:100;
+}
+.header .philtrum{
+    width:3px;
+    height:86px;
+    position:absolute;
+    left:50%;
+    margin-left:-1px;
+    top:76px;
+    background:#333;
+    z-index:100;
+}
+.header .philtrum .beard{
+    height:2px;
+    width:60px;
+    position:absolute;
+    left:-29px;
+    top:15px;
+    background:#000;
+}
+.header .philtrum .beard:nth-child(1){
+    transform:translate(-70px,-20px) rotate(18deg)
+}
+.header .philtrum .beard:nth-child(2){
+    transform:translate(-70px,0px)
+}
+.header .philtrum .beard:nth-child(3){
+    transform:translate(-70px,18px) rotate(-20deg)
+}
+.header .philtrum .beard:nth-child(4){
+    transform:translate(70px,-18px) rotate(-20deg)
+}
+.header .philtrum .beard:nth-child(5){
+    transform:translate(70px,0px);
+}
+.header .philtrum .beard:nth-child(6){
+    transform:translate(70px,20px) rotate(18deg)
+}
+.header .mouth{
+    height:36px;
+    width:160px;
+    position:absolute;
+    left:50%;
+    margin-left:-80px;
+    bottom:36px;
+    overflow:hidden;
+}
+.header .mouth:after{
+    content:"";
+    display:block;
+    border:3px solid #333;
+    height:240px;
+    width:240px;
+    border-radius:50%;
+    position:absolute;
+    left:50%;
+    margin-left:-120px;
+    bottom:0;
+}
+
+._body{
+    height:178px;
+    width:220px;
+    position:absolute;
+    left:50%;
+    margin-left:-110px;
+    bottom:-178px;
+    background:linear-gradient(90deg,#0083a6,#009ac4,#0073b3,#05a5d8,#07beea);
+    box-shadow: -3px 0 8px rgba(0,0,0,0.4);
+}
+._body:after{
+    height:130px;
+    width:217px;
+    content:"";
+    display:block;
+    position:absolute;
+    left:0;
+    bottom:0;
+    z-index:200;
+    border-left:2px solid #000;
+    border-right:2px solid #000;
+}
+._body .neckStrap{
+    height:20px;
+    width:230px;
+    border:2px solid #000;
+    border-radius:8px;
+    background:linear-gradient(#c83f00,#810500);
+    position:absolute;
+    top:-20px;
+    left:50%;
+    z-index:100;
+    margin-left:-115px;
+    text-align:center;
+}
+._body .neckStrap .bell{
+    height:40px;
+    width:40px;
+    border:2px solid #000;
+    display:inline-block;
+    position:relative;
+    left:0;
+    top:10px;
+    border-radius:50%;
+    background:linear-gradient(#f7ef28,#ada502);
+    box-shadow: -3px 2px 4px rgba(0,0,0,0.3);
+}
+._body .neckStrap .bell .line{
+    height:2px;
+    width:36px;
+    border:2px solid #333;
+    position:absolute;
+    left:50%;
+    margin-left:-20px;
+    top:10px;
+
+}
+._body .neckStrap .bell .line:after{
+    content:"";
+    display:block;
+    height:14px;
+    width:14px;
+    background:radial-gradient(rgba(255,255,255,1) 1%,rgba(255,255,255,0) 60%);
+
+    position:absolute;
+    right:1px;
+    top:-7px;
+    border-radius:50%;
+}
+
+._body .neckStrap .bell .cricle{
+    height:10px;
+    width:12px;
+    background:#000;
+    border-radius: 50%;
+    position:absolute;
+    left:50%;
+    margin-left:-6px;
+    bottom:9px;
+}
+._body .neckStrap .bell .cricle:after{
+    content:"";
+    display:block;
+    height:11px;
+    width:3px;
+    background:#000;
+    position:absolute;
+    left:4px;
+    top:8px;
+}
+._body .packagebox{
+    height:150px;
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    z-index:50;
+}
+._body .package{
+    height:170px;
+    width:170px;
+    margin:0 auto;
+    margin-top:-40px;
+    border:2px solid #000;
+    background:linear-gradient(50deg,#bcbcbc,#bcbcbc,#fff 35%);
+    border-radius: 50%;
+    position:relative;
+}
+._body .package div{
+    height:65px;
+    width: 130px;
+    overflow:hidden;
+    position:absolute;
+    left:20px;
+    bottom:20px;
+    border-top:2px solid #000;
+}
+._body .package div:after{
+    content:"";
+    border: 2px solid #000;
+    border-radius: 50%;
+    display:block;
+    height:126px;
+    width:126px;
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+
+._body .crotch{
+    height:12px;
+    width:24px;
+    overflow:hidden;
+    position:absolute;
+    left:50%;
+    margin-left:-12px;
+    bottom:0;
+}
+._body .crotch:after{
+    height:20px;
+    width:20px;
+    content:"";
+    display:block;
+    border:2px solid #000;
+    background:linear-gradient(45deg,#fff 50%,#898989);
+    border-radius:50%;
+}
+
+._body .arms{
+    width:50px;
+    height:70px;
+    position:absolute;
+    top:5px;
+}
+._body .arms:after{
+    display:block;
+    content:"";
+    height:75px;
+    width:30px;
+    position:absolute;
+    top:-30px;
+    z-index:10;
+}
+._body .arms-left:after{
+    right:1px;
+    background:#fff;
+    transform: rotate(-50deg);
+    background:linear-gradient(90deg,#0086a9,#0095bf)
+}
+._body .arms-right:after{
+    left:3px;
+    background:#fff;
+    transform: rotate(50deg);
+    background:linear-gradient(-90deg,#07beea,#06aadc)
+}
+._body .arms-left{
+    left:-38px;
+    transform:rotate(50deg);
+    background:#0086a9;
+    border:2px solid #000;
+    box-shadow: -3px 0 8px rgba(0,0,0,0.4);
+}
+._body .arms-right{
+     right:-38px;
+     transform:rotate(-50deg);
+     background:linear-gradient(90deg,#456870,#07beea 10%);
+     border:2px solid #000;
+ }
+._body .hand{
+    height:60px;
+    width:60px;
+    border-radius:28px;
+    border:2px solid #000;
+    transform:rotate(90deg);
+    position:absolute;
+    bottom:-45px;
+}
+._body .arms-left .hand{
+    left:-8px;
+    background:linear-gradient(-80deg,#ccc 6%,#fff 50%, #fff,#ccc 99%);
+}
+._body .arms-right .hand{
+    right:-8px;
+    background:linear-gradient(45deg,#ccc 2%,#fff 35%);
+}
+
+
+._body .legs{
+    height:28px;
+    width:121px;
+    border:2px solid #000;
+    background:linear-gradient(70deg,#a9a9a9 ,#fff 18%);
+    border-radius:16px;
+    box-shadow: -3px 0 8px rgba(0,0,0,0.4);
+}
+._body .legs1{
+    position:absolute;
+    left:-16px;
+    bottom:-30px;
+    border-bottom-left-radius: 13px;
+    border-top-left-radius: 22px;
+}
+._body .legs2{
+    position:absolute;
+    right:-16px;
+    bottom:-30px;
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 22px;
+}
+
+

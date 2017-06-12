@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    html,body{
+        margin:0;
+        padding:0;
+        background:#000;
+        height:100%;
+        width:100%;
+        overflow
+        position:relative;
+    }
+    html{
+      overflow:hidden;
+    }
+
+    div.xue{
+        height:2px;
+        width:1px;
+        background:#fff;
+        position:absolute;
+        top:-300px;
+    }
+</style>
+<body>
+
+</body>
+<script>
+    window.onload=function(){
+
+        var start=0;
+        var step=1;
+        setInterval(function(){
+            start=start+step;
+//            document.body.style.width="100%";
+            document.body.style.transform="rotate("+Math.sin(Math.PI/180*start)*30+"deg)";
+        },70);
+
+        let cw=document.documentElement.clientWidth;
+        let ch=document.documentElement.clientHeight;
+        var arr=[];
+        for(var i=0;i<100;i++){
+            var div=document.createElement("div");
+            div.style.left=20+(cw-40)*Math.random()+"px";
+            div.style.transition="all "+(4*Math.random()+2)+"s linear "+6*Math.random()+"s";
+            div.className="xue";
+            arr.push(div);
+            document.body.appendChild(div);
+        }
+
+        setTimeout(function(){
+           for(var i=0;i<arr.length;i++){
+               arr[i].style.transform="translate(0,"+(ch+400)+"px)";
+               arr[i].addEventListener("webkitTransitionEnd",function(){
+                   this.style.transition="none";
+                   this.style.transform="translate(0,0)";
+                   var that=this;
+                   var t=setTimeout(function(){
+                       that.style.transform="translate(0,"+(ch+400)+"px)";
+                       that.style.transition="all "+(4*Math.random()+2)+"s linear "+3*Math.random()+"s";
+
+                       clearTimeout(t);
+                   },0)
+               })
+           }
+        },0)
+    }
+</script>
+</html>
