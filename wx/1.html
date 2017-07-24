@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+  <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<style>
 		/* body{
 			padding:0;
@@ -32,6 +33,8 @@ function stopDrop() {
     var lastY;//最后一次y坐标点
     $(document.body).on('touchstart', function(event) {
         lastY = event.originalEvent.changedTouches[0].clientY;//点击屏幕时记录最后一次Y度坐标。
+
+ $(document.body).css("color","plum");
     });
     $(document.body).on('touchmove', function(event) {
         var y = event.originalEvent.changedTouches[0].clientY;
